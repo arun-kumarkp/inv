@@ -9,24 +9,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
 
 <!-- External CSS -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
 <!-- COVER PAGE -->
 <section class="cover" id="cover">
-    <h1>Ananthu & Lakshmi</h1>
+    <h1 class="couple-names">Ananthu & Lakshmi</h1>
     <p class="tagline">Together with their families</p>
     <p class="tagline">Invite you to celebrate their wedding</p>
 
-    <div class="scroll-arrow" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'});">&#x25BC;</div>
+    <!-- Premium Countdown -->
+    <div id="cover-countdown" class="cover-countdown"></div>
+
+    <!-- Scroll Arrow -->
+    <div class="scroll-arrow" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'});">
+        &#x25BC;
+    </div>
 </section>
 
 <!-- MAIN DETAILS -->
 <section id="details" class="section">
     <p>Smt. Usha Viswanath & Sri. V. D. Viswanath Menon<br>
     Kalachur House, Kalachur Road, Manjummel P.O., Ernakulam</p>
-    <p>joyfully invite you to join in celebrating their wedding</p>
+    <p>joyfully invite you to join in celebrating the wedding of</p>
     <div class="names">Ananthu Viswanath</div>
     <div class="separator">&amp;</div>
     <div class="names">Lakshmi Unnikrishnan</div>
@@ -67,6 +73,6 @@
 <button id="music-btn">🎵 Play Music</button>
 
 <!-- External JS -->
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
