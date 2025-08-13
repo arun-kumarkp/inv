@@ -1,4 +1,6 @@
-/* Countdown for both cover & ceremony */
+/* ==============================
+   COUNTDOWN FOR COVER & CEREMONY
+   ============================== */
 const weddingDate = new Date("Sep 14, 2025 09:30:00").getTime();
 const countdownEls = [
     document.getElementById("countdown"),
@@ -25,7 +27,9 @@ setInterval(function () {
     });
 }, 1000);
 
-/* Scroll reveal animation */
+/* ==============================
+   SCROLL REVEAL ANIMATION
+   ============================== */
 const sections = document.querySelectorAll('.section');
 function revealSections() {
     const triggerBottom = window.innerHeight * 0.85;
@@ -38,9 +42,12 @@ function revealSections() {
 window.addEventListener('scroll', revealSections);
 revealSections();
 
-/* Background Music Control */
+/* ==============================
+   BACKGROUND MUSIC CONTROL
+   ============================== */
 const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-btn');
+
 musicBtn.addEventListener('click', () => {
     if (music.paused) {
         music.play();
@@ -50,3 +57,13 @@ musicBtn.addEventListener('click', () => {
         musicBtn.textContent = "🎵 Play Music";
     }
 });
+
+
+// Blinking heart in browser tab title
+const originalTitle = "✨";
+let showHeart = true;
+
+setInterval(() => {
+    document.title = showHeart ? "❤️ " + originalTitle : "   " + originalTitle;
+    showHeart = !showHeart;
+}, 800); // change every 800ms
