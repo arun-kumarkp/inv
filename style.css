@@ -1,0 +1,278 @@
+/* ==============================
+   GLOBAL STYLES
+   ============================== */
+   :root {
+    --gold: #b48a3c;
+    --cream: #fdf8f3;
+}
+
+/* Reset default spacing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--cream);
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* ==============================
+   COVER PAGE
+   ============================== */
+.cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.9), var(--cream)),
+                radial-gradient(circle at bottom right, rgba(255,255,255,0.8), var(--cream));
+    border: 10px solid transparent;
+    border-image: linear-gradient(45deg, var(--gold), #d4af37) 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cover h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--gold);
+    animation: fadeDown 1.5s ease-in-out;
+}
+
+.tagline {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #444;
+    margin-top: 0.5em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1.5s ease-in-out forwards;
+    animation-delay: 0.8s;
+}
+
+.scroll-arrow {
+    margin-top: 2em;
+    font-size: 2rem;
+    color: var(--gold);
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+}
+
+/* ==============================
+   MAIN CONTENT SECTIONS
+   ============================== */
+.section {
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    text-align: center;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1.02);
+    box-shadow: 0 0 15px rgba(180, 138, 60, 0.3);
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.names {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: 'Great Vibes', cursive;
+    color: var(--gold);
+    margin: 0.8em 0;
+}
+
+.separator {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin: 0.5em 0;
+}
+
+.section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0.3rem 0;
+    color: #444;
+}
+
+
+/* Elegant names with gold shimmer */
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 7vw, 5rem);
+    background: linear-gradient(45deg, #b48a3c, #e6c07b, #b48a3c);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 8s infinite linear;
+    text-shadow: 0 4px 8px rgba(180, 138, 60, 0.4);
+}
+
+/* Cover countdown - premium glass look */
+.cover-countdown {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(180, 138, 60, 0.25);
+    animation: fadeIn 1.5s ease-in-out, pulse 3s infinite;
+}
+
+/* Background subtle movement */
+.cover {
+    position: relative;
+    overflow: hidden;
+}
+.cover::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.6), transparent 60%);
+    animation: bgMove 20s linear infinite;
+    z-index: 0;
+}
+.cover > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Moving background effect */
+@keyframes bgMove {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+a.button {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    margin: 0.4rem;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(45deg, var(--gold), #d4af37);
+    background-size: 200% 200%;
+    transition: all 0.3s ease, background-position 0.3s ease;
+}
+
+a.button:hover {
+    background-position: right center;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px rgba(180, 138, 60, 0.4);
+}
+/* Countdown on Cover Page */
+.cover-countdown {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--gold);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 12px rgba(180, 138, 60, 0.4);
+    animation: pulse 2s infinite;
+}
+ 
+/* ==============================
+   FOOTER
+   ============================== */
+footer {
+    margin: 40px 0 20px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+}
+
+/* ==============================
+   MUSIC BUTTON
+   ============================== */
+#music-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 0.9rem;
+}
+#music-btn:hover {
+    background: #d4af37;
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+@media (max-width: 768px) {
+    .section { padding: 1.5rem 1rem; }
+    a.button { font-size: 0.9em; padding: 8px 12px; }
+    .names { font-size: 2.2rem; }
+    .section p { font-size: 1rem; }
+}

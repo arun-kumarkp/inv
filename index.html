@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation - Ananthu & Lakshmi</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<section class="cover" id="cover">
+    <h1>Ananthu & Lakshmi</h1>
+    <p class="tagline">Together with their families</p>
+    <p class="tagline">Invite you to celebrate their wedding</p>
+
+    <div class="scroll-arrow" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'});">&#x25BC;</div>
+</section>
+
+<!-- MAIN DETAILS -->
+<section id="details" class="section">
+    <p>Smt. Usha Viswanath & Sri. V. D. Viswanath Menon<br>
+    Kalachur House, Kalachur Road, Manjummel P.O., Ernakulam</p>
+    <p>joyfully invite you to join in celebrating their wedding</p>
+    <div class="names">Ananthu Viswanath</div>
+    <div class="separator">&amp;</div>
+    <div class="names">Lakshmi Unnikrishnan</div>
+    <p>D/o. Smt. Shyja Unnikrishnan & Shri T. P. Unnikrishnan<br>
+    Thannikkal House, Madathumpady P.O., Erattapady, Mala</p>
+</section>
+
+<!-- WEDDING CEREMONY -->
+<section class="section">
+    <h2>Wedding Ceremony</h2>
+    <p><strong>Date:</strong> Sunday, 14 September 2025</p>
+    <p><strong>Time:</strong> 9:30 AM – 2:30 PM</p>
+    <p><strong>Location:</strong> Highview Arcade, Poopathy, Mala, Thrissur</p>
+    <a class="button" href="https://maps.google.com/?q=Highview+Arcade+Poopathy+Mala+Thrissur" target="_blank">View on Google Maps</a>
+    <a class="button" href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20250914T040000Z%0ADTEND:20250914T090000Z%0ASUMMARY:Wedding%20Ceremony%20-%20Ananthu%20%26%20Lakshmi%0ALOCATION:Highview%20Arcade%2C%20Poopathy%2C%20Mala%2C%20Thrissur%0ADESCRIPTION:Thalikkettu%20at%20Guruvayoor%20Temple%20followed%20by%20lunch%20at%20Highview%20Arcade%0AEND:VEVENT%0AEND:VCALENDAR" download="wedding-ceremony.ics">Add to Calendar</a>
+</section>
+
+<!-- RECEPTION -->
+<section class="section">
+    <h2>Wedding Reception</h2>
+    <p><strong>Date:</strong> Monday, 15 September 2025</p>
+    <p><strong>Time:</strong> 6:00 PM – 9:00 PM</p>
+    <p><strong>Location:</strong> Santhom Parish Hall, Pathalam, Eloor</p>
+    <a class="button" href="https://maps.google.com/?q=Santhom+Parish+Hall+Pathalam+Eloor" target="_blank">View on Google Maps</a>
+    <a class="button" href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20250915T123000Z%0ADTEND:20250915T153000Z%0ASUMMARY:Wedding%20Reception%20-%20Ananthu%20%26%20Lakshmi%0ALOCATION:Santhom%20Parish%20Hall%2C%20Pathalam%2C%20Eloor%0ADESCRIPTION:Wedding%20Reception%20of%20Ananthu%20%26%20Lakshmi%0AEND:VEVENT%0AEND:VCALENDAR" download="wedding-reception.ics">Add to Calendar</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    With love,<br>
+    Ananthu & Lakshmi
+</footer>
+
+<!-- MUSIC PLAYER -->
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn">🎵 Play Music</button>
+
+<!-- External JS -->
+<script src="script.js"></script>
+</body>
+</html>
