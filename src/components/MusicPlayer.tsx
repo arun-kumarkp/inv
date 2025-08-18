@@ -6,10 +6,10 @@ const MusicPlayer = () => {
   const [currentSong, setCurrentSong] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // You can add your own wedding songs here
+  // Resolve music path relative to the deployed base (GitHub Pages safe)
+  const musicUrl = new URL('music.mp3', import.meta.env.BASE_URL).toString();
   const playlist = [
-    { title: "Wedding Song 1", src: "/music.mp3" },
-    // Add more songs as needed
+    { title: "Wedding Song 1", src: musicUrl },
   ];
 
   useEffect(() => {
