@@ -15,6 +15,11 @@
 body {
     font-family: 'Playfair Display', serif;
     background-color: var(--cream);
+    /* Subtle floral background pattern */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23e4b1c2' stroke-width='1.5' opacity='0.5'%3E%3Cpath d='M36 28c10-10 28-10 38 0s10 28 0 38-28 10-38 0-10-28 0-38Z'/%3E%3Cpath d='M132 52c8-8 22-8 30 0s8 22 0 30-22 8-30 0-8-22 0-30Z'/%3E%3Cpath d='M64 120c6-6 16-6 22 0s6 16 0 22-16 6-22 0-6-16 0-22Z'/%3E%3Ccircle cx='150' cy='132' r='4' fill='%23d9a5b3'/%3E%3Ccircle cx='24' cy='132' r='3' fill='%23d9a5b3'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    background-attachment: fixed;
+    background-position: center;
     color: #333;
     scroll-behavior: smooth;
     line-height: 1.6;
@@ -37,6 +42,7 @@ body {
     border: 10px solid transparent;
     border-image: linear-gradient(45deg, var(--gold), #d4af37) 1;
     animation: fadeIn 1.5s ease-in-out;
+    z-index: 1;
 }
 
 /* Elegant names with gold shimmer */
@@ -94,6 +100,8 @@ body {
     transform: translateY(30px);
     transition: all 0.8s ease-out;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .section.visible {
@@ -173,6 +181,8 @@ footer {
     font-size: 0.9em;
     color: #555;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 /* ==============================
@@ -193,6 +203,50 @@ footer {
 }
 #music-btn:hover {
     background: #d4af37;
+}
+
+/* ==============================
+   FLOATING FLOWERS (cute animation)
+   ============================== */
+.floating-flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-flowers span {
+    position: absolute;
+    top: -10vh;
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle at 30% 30%, #f6c6d0 0%, #f1a7b3 60%, #e88ea1 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.06));
+    animation: flowerFall 14s linear infinite;
+}
+
+.floating-flowers span:nth-child(1) { left: 5%;  animation-duration: 18s; animation-delay: 0s;  width: 10px; height: 10px; }
+.floating-flowers span:nth-child(2) { left: 15%; animation-duration: 16s; animation-delay: 2s;  width: 14px; height: 14px; }
+.floating-flowers span:nth-child(3) { left: 25%; animation-duration: 20s; animation-delay: 1s;  width: 12px; height: 12px; }
+.floating-flowers span:nth-child(4) { left: 35%; animation-duration: 17s; animation-delay: 3s;  width: 18px; height: 18px; }
+.floating-flowers span:nth-child(5) { left: 45%; animation-duration: 19s; animation-delay: 4s;  width: 10px; height: 10px; }
+.floating-flowers span:nth-child(6) { left: 55%; animation-duration: 15s; animation-delay: 1.5s; width: 16px; height: 16px; }
+.floating-flowers span:nth-child(7) { left: 65%; animation-duration: 21s; animation-delay: 2.5s; width: 12px; height: 12px; }
+.floating-flowers span:nth-child(8) { left: 75%; animation-duration: 17s; animation-delay: 0.5s; width: 14px; height: 14px; }
+.floating-flowers span:nth-child(9) { left: 85%; animation-duration: 20s; animation-delay: 3.5s; width: 10px; height: 10px; }
+.floating-flowers span:nth-child(10){ left: 95%; animation-duration: 22s; animation-delay: 1s;  width: 16px; height: 16px; }
+
+@keyframes flowerFall {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.5; }
+    50%  { transform: translateY(50vh) translateX(20px) rotate(180deg); }
+    100% { transform: translateY(110vh) translateX(-20px) rotate(360deg); opacity: 0; }
 }
 
 /* ==============================
@@ -222,4 +276,6 @@ footer {
 @media (max-width: 768px) {
     .section { padding: 25px 15px; }
     a.button { font-size: 0.9em; padding: 8px 14px; }
+    body { background-size: 160px 160px; }
+    .floating-flowers span { opacity: 0.5; }
 }
