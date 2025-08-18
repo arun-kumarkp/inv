@@ -2,9 +2,7 @@
 Place your wedding music file as `public/music.mp3` to enable the music player.
 
 ## 📸 Photos
-Replace the placeholder images in the photo gallery with your actual wedding photos:
-1. Add images to the `public` folder
-2. Update the `photos` array in `src/components/PhotoGallery.tsx`
+Photo gallery has been removed in this setup as requested.
 
 ## 🛠️ Development
 
