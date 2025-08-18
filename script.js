@@ -88,6 +88,26 @@ musicBtn.addEventListener('click', () => {
     }
 });
 
+// Pause music when tab is hidden or page is about to unload
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !music.paused) {
+        music.pause();
+        musicBtn.textContent = "🎵";
+        musicBtn.classList.remove('is-playing');
+        musicBtn.setAttribute('aria-label', 'Play music');
+        musicBtn.title = 'Play music';
+    }
+});
+
+window.addEventListener('pagehide', () => {
+    if (!music.paused) {
+        music.pause();
+        music.currentTime = 0;
+        musicBtn.textContent = "🎵";
+        musicBtn.classList.remove('is-playing');
+    }
+});
+
 
 // Blinking heart in browser tab title
 const originalTitle = "✨";
@@ -97,3 +117,17 @@ setInterval(() => {
     document.title = showHeart ? "❤️ " + originalTitle : "   " + originalTitle;
     showHeart = !showHeart;
 }, 800); // change every 800ms
+
+/* ==============================
+   SCROLL PROGRESS BAR
+   ============================== */
+const progressBar = document.querySelector('#scroll-progress .bar');
+function updateProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (progressBar) progressBar.style.width = progress + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+window.addEventListener('resize', updateProgress);
+document.addEventListener('DOMContentLoaded', updateProgress);

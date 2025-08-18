@@ -295,6 +295,27 @@ footer {
 }
 
 /* ==============================
+   SCROLL PROGRESS BAR (cute)
+   ============================== */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: rgba(0,0,0,0.04);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+#scroll-progress .bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #f6c6d0, #e6c07b);
+    box-shadow: 0 0 8px rgba(230, 192, 123, 0.6);
+    transition: width 0.15s linear;
+}
+
+/* ==============================
    MUSIC BUTTON
    ============================== */
 #music-btn {
