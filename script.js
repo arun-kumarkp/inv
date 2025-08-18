@@ -28,19 +28,39 @@ setInterval(function () {
 }, 1000);
 
 /* ==============================
-   SCROLL REVEAL ANIMATION
+   SCROLL REVEAL ANIMATION (Staggered sequence)
    ============================== */
 const sections = document.querySelectorAll('.section');
+let animationSequence = [];
+
 function revealSections() {
     const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(sec => {
-        if (sec.getBoundingClientRect().top < triggerBottom) {
-            sec.classList.add('visible');
+    
+    sections.forEach((sec, index) => {
+        if (sec.getBoundingClientRect().top < triggerBottom && !sec.classList.contains('visible')) {
+            // Add to animation sequence with delay based on section order
+            const delay = index * 300; // 300ms delay between each section
+            animationSequence.push({ section: sec, delay: delay });
         }
     });
+    
+    // Process animation sequence
+    animationSequence.forEach(({ section, delay }) => {
+        setTimeout(() => {
+            section.classList.add('visible');
+        }, delay);
+    });
+    
+    // Clear processed animations
+    animationSequence = animationSequence.filter(item => !item.section.classList.contains('visible'));
 }
+
 window.addEventListener('scroll', revealSections);
-revealSections();
+
+// Initial reveal for sections already in view
+setTimeout(() => {
+    revealSections();
+}, 500);
 
 /* ==============================
    BACKGROUND MUSIC CONTROL
