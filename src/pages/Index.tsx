@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import FloatingElements from '@/components/FloatingElements';
 import PremiumCard from '@/components/PremiumCard';
 import EventSection from '@/components/EventSection';
-import PhotoGallery from '@/components/PhotoGallery';
 import MusicPlayer from '@/components/MusicPlayer';
 
 const Index = () => {
@@ -119,10 +118,6 @@ const Index = () => {
         />
       </section>
 
-      {/* Photo Gallery Section */}
-      <section className="py-8 sm:py-12 md:py-16 px-2 sm:px-4">
-        <PhotoGallery />
-      </section>
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 md:py-16 text-center px-2 sm:px-4">
