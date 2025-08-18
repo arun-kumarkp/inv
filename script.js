@@ -173,9 +173,10 @@ function updateHeartPosition() {
     // Update heart position based on scroll progress
     if (heartScrollIndicator) {
         const progress = Math.min(scrollTop / (docHeight - windowHeight), 1);
-        const maxTop = windowHeight - 100; // Leave space for footer
+        const maxTop = windowHeight - 140; // More bottom space on small screens
         const heartTop = progress * maxTop;
-        heartScrollIndicator.style.top = `${heartTop + 50}px`;
+        heartScrollIndicator.style.top = `${Math.max(40, heartTop + 40)}px`;
+        heartScrollIndicator.style.opacity = (window.innerWidth < 480) ? 0.32 : 0.4;
     }
     
     // Check if we're near the footer to trigger merge animation
