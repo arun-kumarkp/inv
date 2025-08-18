@@ -131,3 +131,67 @@ function updateProgress() {
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 document.addEventListener('DOMContentLoaded', updateProgress);
+
+/* ==============================
+   HEART SCROLL JOURNEY
+   ============================== */
+const startingHeart = document.querySelector('.starting-heart');
+let heartScrollIndicator = null;
+let hasHeartMoved = false;
+
+function createHeartScrollIndicator() {
+    if (!heartScrollIndicator) {
+        heartScrollIndicator = document.createElement('div');
+        heartScrollIndicator.className = 'heart-scroll-indicator';
+        heartScrollIndicator.innerHTML = '❤️';
+        document.body.appendChild(heartScrollIndicator);
+    }
+}
+
+function updateHeartPosition() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const footer = document.querySelector('footer');
+    
+    // If we haven't scrolled past the cover yet, keep heart in starting position
+    if (scrollTop < windowHeight * 0.5) {
+        if (startingHeart) startingHeart.style.opacity = '1';
+        if (heartScrollIndicator) heartScrollIndicator.style.opacity = '0';
+        hasHeartMoved = false;
+        return;
+    }
+    
+    // Move heart to right side as scroll indicator
+    if (!hasHeartMoved) {
+        if (startingHeart) startingHeart.style.opacity = '0';
+        createHeartScrollIndicator();
+        if (heartScrollIndicator) heartScrollIndicator.style.opacity = '1';
+        hasHeartMoved = true;
+    }
+    
+    // Update heart position based on scroll progress
+    if (heartScrollIndicator) {
+        const progress = Math.min(scrollTop / (docHeight - windowHeight), 1);
+        const maxTop = windowHeight - 100; // Leave space for footer
+        const heartTop = progress * maxTop;
+        heartScrollIndicator.style.top = `${heartTop + 50}px`;
+    }
+    
+    // Check if we're near the footer to trigger merge animation
+    if (footer && scrollTop + windowHeight > footer.offsetTop - 100) {
+        if (heartScrollIndicator && !heartScrollIndicator.classList.contains('merging')) {
+            heartScrollIndicator.classList.add('merging');
+            setTimeout(() => {
+                if (heartScrollIndicator) {
+                    heartScrollIndicator.remove();
+                    heartScrollIndicator = null;
+                }
+            }, 1000);
+        }
+    }
+}
+
+window.addEventListener('scroll', updateHeartPosition, { passive: true });
+window.addEventListener('resize', updateHeartPosition);
+document.addEventListener('DOMContentLoaded', updateHeartPosition);
