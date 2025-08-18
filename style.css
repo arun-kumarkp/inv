@@ -36,7 +36,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 0 20px;
+    padding: 0 clamp(24px, 7vw, 48px);
     background: radial-gradient(circle at top left, rgba(255,255,255,0.95), var(--cream)),
                 radial-gradient(circle at bottom right, rgba(255,255,255,0.85), var(--cream));
     border: 10px solid transparent;
@@ -91,8 +91,9 @@ body {
    ============================== */
 .section {
     margin: 50px auto;
-    padding: 40px 25px;
+    padding: clamp(28px, 4.5vw, 40px) clamp(20px, 4.5vw, 28px);
     max-width: 900px;
+    width: min(900px, calc(100% - 32px)); /* keeps 16px gutters on mobile */
     background: rgba(255,255,255,0.95);
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -108,6 +109,46 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1.02);
     box-shadow: 0 0 15px rgba(180, 138, 60, 0.3);
+}
+
+/* Featured importance for MAIN DETAILS */
+#details {
+    background: linear-gradient(0deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98)) padding-box,
+                linear-gradient(45deg, var(--gold), #e6c07b) border-box;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 28px rgba(180, 138, 60, 0.18);
+}
+
+#details.visible {
+    transform: translateY(0) scale(1.04);
+    box-shadow: 0 12px 32px rgba(180, 138, 60, 0.25);
+}
+
+/* Decorative separation between sections while keeping equal importance */
+.section + .section {
+    margin-top: 70px;
+}
+
+.section + .section::before {
+    content: "❦";
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 22px;
+}
+
+.section + .section::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(0,0,0,0), rgba(180,138,60,0.45), rgba(0,0,0,0));
+    border-radius: 2px;
 }
 
 .section p {
@@ -274,7 +315,7 @@ footer {
    RESPONSIVE
    ============================== */
 @media (max-width: 768px) {
-    .section { padding: 25px 15px; }
+    .section { padding: 28px 20px; }
     a.button { font-size: 0.9em; padding: 8px 14px; }
     body { background-size: 160px 160px; }
     .floating-flowers span { opacity: 0.5; }
