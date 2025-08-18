@@ -156,21 +156,7 @@ body {
     box-shadow: 0 12px 32px rgba(180, 138, 60, 0.25);
 }
 
-/* Cute corner ribbon on MAIN DETAILS */
-#details::before {
-    content: "Save the Date";
-    position: absolute;
-    top: 10px;
-    left: -12px;
-    transform: rotate(-12deg);
-    background: linear-gradient(45deg, #e6c07b, var(--gold));
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.72rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(180, 138, 60, 0.25);
-}
+
 
 /* Decorative separation between sections while keeping equal importance */
 .section + .section {
