@@ -48,13 +48,23 @@ revealSections();
 const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-btn');
 
+// Initialize cute emoji icon and a11y label
+musicBtn.textContent = "🎵";
+musicBtn.setAttribute('aria-label', 'Play music');
+
 musicBtn.addEventListener('click', () => {
     if (music.paused) {
         music.play();
-        musicBtn.textContent = "🔇 Pause Music";
+        musicBtn.textContent = "🎶";
+        musicBtn.classList.add('is-playing');
+        musicBtn.setAttribute('aria-label', 'Pause music');
+        musicBtn.title = 'Pause music';
     } else {
         music.pause();
-        musicBtn.textContent = "🎵 Play Music";
+        musicBtn.textContent = "🎵";
+        musicBtn.classList.remove('is-playing');
+        musicBtn.setAttribute('aria-label', 'Play music');
+        musicBtn.title = 'Play music';
     }
 });
 
